@@ -21,13 +21,14 @@ public class PlaneMesh : MonoBehaviour {
             };
 
         BuildMesh(pontos);
+
+        //StartCoroutine(EfeitoOnda());
     }
 
     public void BuildMesh(Vector3[] pontosq) {
         for (int i = 0; i < 4; i++) {
             pontosq[i].y = 0;
         }
-
         ponto1 = pontosq[0];
         ponto2 = pontosq[1];
         ponto3 = pontosq[2];
@@ -39,8 +40,8 @@ public class PlaneMesh : MonoBehaviour {
         int[] tri;
         Vector2[] uv = new Vector2[(linhas + 1) * (colunas + 1)];
         Vector3[] normals = new Vector3[(linhas + 1) * (colunas + 1)];
-        //vertices
         vertices = new Vector3[(linhas + 1) * (colunas + 1)];
+        //vertices
         pontos = new Vector3[linhas + 1];
         for (int i = 0; i < linhas + 1; i++) {
             pontos[i] = Vector3.Lerp(ponto1, ponto3, (float) 1 / linhas * i);
@@ -55,10 +56,11 @@ public class PlaneMesh : MonoBehaviour {
             pont2 = pontos2[k];
             for (int i = 0; i < colunas + 1; i++) {
                 vertices[i + ((colunas + 1) * k)] = Vector3.Lerp(pont1, pont2, (float) 1 / colunas * i);
-                //linha que mexe na altura
+                //altura de cada vertice aleatoria
                 vertices[i + ((colunas + 1) * k)].y = Random.Range(-0.5f, 1.5f);
-                //
+                //normals
                 normals[i + ((colunas + 1) * k)] = Vector3.up;
+                //uvs
                 uv[i + ((colunas + 1) * k)] = new Vector2((float) i / colunas + 1, (float) k / colunas + 1);
             }
         }
@@ -77,12 +79,13 @@ public class PlaneMesh : MonoBehaviour {
                 indice += 6;
             }
         }
-
+       
         mesh.vertices = vertices;
         mesh.triangles = tri;
         mesh.triangles = mesh.triangles.Reverse().ToArray();
         mesh.normals = normals;
         mesh.uv = uv;
+
         mf.mesh = mesh;
     }
 
@@ -91,11 +94,10 @@ public class PlaneMesh : MonoBehaviour {
 
 
 
-    /*IEnumerator EfeitoOnda() {
+    IEnumerator EfeitoOnda() {
         for (int i=0; i< vertices.Length; i++) {
-            vertices[i].y = Random.Range(-32.5f, 22.5f);
-            vertices[vertices.Length-1-i].y = Random.Range(-32.5f, 22.5f);
-            print("sd");
+            vertices[i].y = Random.Range(-0.5f, 1.5f);
+            vertices[vertices.Length-1-i].y = Random.Range(-0.5f, 1.5f);
             yield return new WaitForSeconds(0.05f);
             mesh.vertices = vertices;
         }
@@ -103,7 +105,7 @@ public class PlaneMesh : MonoBehaviour {
         mesh.RecalculateBounds();
 
         mf.mesh = mesh;
-    }*/
+    }
 
     /*void OnDrawGizmos() {
         Gizmos.color = Color.yellow;

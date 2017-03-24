@@ -78,7 +78,27 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Common\CameraSettings.cs" />
+    <Compile Include="Assets\Common\FrameRateSettings.cs" />
+    <Compile Include="Assets\Common\InitErrorHandler.cs" />
+    <Compile Include="Assets\Common\MenuAnimator.cs" />
+    <Compile Include="Assets\Common\MenuOptions.cs" />
+    <Compile Include="Assets\Common\SplashAbout\AboutScreen.cs" />
+    <Compile Include="Assets\Common\SplashAbout\AsyncSceneLoader.cs" />
+    <Compile Include="Assets\Common\SplashAbout\LoadingScreen.cs" />
+    <Compile Include="Assets\Common\TapHandler.cs" />
+    <Compile Include="Assets\Common\TrackableSettings.cs" />
+    <Compile Include="Assets\CuboScript.cs" />
+    <Compile Include="Assets\EsferaScript.cs" />
+    <Compile Include="Assets\Scripts\CylinderTrackableEventHandler.cs" />
+    <Compile Include="Assets\Scripts\Ice.cs" />
+    <Compile Include="Assets\Scripts\Iceberg.cs" />
+    <Compile Include="Assets\Scripts\Penguin.cs" />
+    <Compile Include="Assets\Scripts\PenguinTapHandler.cs" />
     <Compile Include="Assets\Scripts\PlaneMesh.cs" />
+    <Compile Include="Assets\Scripts\SmartTerrainEventHandler.cs" />
+    <Compile Include="Assets\Scripts\SmartTerrainTrackableEventHandler.cs" />
+    <Compile Include="Assets\Scripts\UIStateManager.cs" />
     <Compile Include="Assets\Vuforia\Scripts\BackgroundPlaneBehaviour.cs" />
     <Compile Include="Assets\Vuforia\Scripts\CloudRecoBehaviour.cs" />
     <Compile Include="Assets\Vuforia\Scripts\CylinderTargetBehaviour.cs" />
@@ -116,9 +136,13 @@
     <Compile Include="Assets\Vuforia\Scripts\WordBehaviour.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Assets\PenguinAssets\Shader\DynamicMeshSurface.shader" />
+    <None Include="Assets\PenguinAssets\Shader\Ice_TransparentWithDepthMask.shader" />
+    <None Include="Assets\PenguinAssets\Shader\SimpleIce.shader" />
     <None Include="Assets\Plugins\Android\AndroidManifest.xml" />
     <None Include="Assets\Plugins\iOS\Vuforia.UnityExtensions.iOS.XML" />
     <None Include="Assets\StreamingAssets\QCAR\projeto-bolsa.xml" />
+    <None Include="Assets\StreamingAssets\QCAR\sodacan.xml" />
     <None Include="Assets\Vuforia\Editor\Scripts\Vuforia.UnityExtensions.Editor.XML" />
     <None Include="Assets\Vuforia\Editor\WebcamProfiles\profiles.xml" />
     <None Include="Assets\Vuforia\Scripts\Internal\Vuforia.UnityExtensions.XML" />
